@@ -1,0 +1,72 @@
+{{!-- here goes the html that you want wrapped in logic --}}
+
+{{!-- for each burger, render the markup that follows... --}}
+ {{!--   <textarea>
+        {{ burger.description }}
+    </textarea> --}}
+
+ <div class="container">  
+    <div class="row">
+        <div class="col-xs-12 center">
+            <img src="/assets/img/94f87a771d6f0338109dd032e493ea35da722a10.jpg" 
+            style="width:120px;height:120px;" class="img_top" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column-xs-12">
+            <h1>Eat Da Burger</h1>
+
+            <div class="row">
+                <div class="column-xs-6">
+                    {{#each burgers}}
+                        {{#unless this.devoured}}
+
+                        <div class="row">
+                            <div class="devour_btn">
+                                <form action="/{{this.id}}?_method=PUT" method="POST">
+                               <input type="hidden" name="id" value="{{this.id}}">
+                                    <button type="submit">Devour It</button>
+                                </form>
+                            </div>
+                        
+                            <div class="burger_not_devoured">
+                                {{this.id}}.{{this.burger_name}}
+                            </div>
+                        </div>
+
+                        {{/unless}}
+                    {{/each}} 
+                </div>
+
+                <div class="clearfix visible-xs-block"></div>
+                <div class="column-xs-6">
+                    {{#each burgers}}
+                        {{#if this.devoured}}
+                            <div class="burger_devoured">
+                                {{this.id}}.{{this.burger_name}}
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-4 center">
+                    <form action="/" method="POST">
+                        <textarea name="new_burger" id="new_burger" class="textarea"></textarea>
+
+                        <input type="submit" value="Submit" class="submit" />
+                    </form>
+                    
+                    <span class="text_bottom">Enter Burger you want to Eat, then CLICK the SUBMIT button</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                                                    
+                        
+
+                            
+
