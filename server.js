@@ -6,10 +6,10 @@ var path = require("path");
 var exphbs = require("express-handlebars");
 // you probably won't need this, bring it back if you do
 // var methodOverride = require("method-override");
-
+var app = express();
 var port = 3000;  //8080
 
-var app = express(); 
+ 
 
 //serve static content for the app from the "public" directory in the app directory
 app.use(express.static(__dirname + "/public"));
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
  app.use(methodOverride("_method"));
 
  
- var exphbs = require("express-handlebars");
+ 
  app.engine("handlebars", exphbs({ defaultLayout: "main" }));
  app.set("view engine", "handlebars");
  
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
  require('./routes/api-routes.js')(app); 
  require('./routes/html-routes.js')(app);
  //var routes = require("./controllers/burgers_controller.js");
- app.use("/", routes);
+ //app.use("/",routes);
  
  app.listen(port, function() {
    console.log("Listening on port %s", port);

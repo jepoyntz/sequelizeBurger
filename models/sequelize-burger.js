@@ -26,7 +26,7 @@ var sequelizeBurger = model.define('sequelizeBurger', {
 
     devoured: {
         type: Sequelize.BOOLEAN,
-        defaultValue: 0
+        defaultValue: false
     },
     time: {
         type: Sequelize.DATE,

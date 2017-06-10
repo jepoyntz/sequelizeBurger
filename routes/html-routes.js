@@ -1,6 +1,6 @@
 
 var path = require('path');
-var model = require('../model/sequelize-burger.js');
+var model = require('../models/sequelize-burger.js');
 
 module.exports = function(app) {
 
